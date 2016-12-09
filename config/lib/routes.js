@@ -21,7 +21,7 @@ module.exports = function(app) {
             }
         });
     }
-    
+
     recursiveRoutes('modules');
 
     app.get('/logout', function(req, res) {
