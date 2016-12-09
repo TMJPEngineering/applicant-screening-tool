@@ -1,1 +1,1 @@
-# Mean Stack Framework
+# Applicant Screening Tool
