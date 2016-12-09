@@ -2,6 +2,7 @@
 
 var Mongoose = require('mongoose'),
     Schema = Mongoose.Schema,
+    plugin = require('./../shared/shared.schema'),
 
     applicantSchema = new Mongoose.Schema({
         prefer_salary: {
@@ -19,5 +20,7 @@ var Mongoose = require('mongoose'),
             default: ''
         }
     });
+
+applicantSchema.plugin(plugin);
 
 module.exports = Mongoose.model('Applicant', applicantSchema);

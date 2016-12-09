@@ -6,6 +6,6 @@ var Applicant = require('./applicant.schema'),
 
 module.exports = {
     save: function(params) {
-        console.log('register', params);
+        console.log('applicant', params);
     }
 };

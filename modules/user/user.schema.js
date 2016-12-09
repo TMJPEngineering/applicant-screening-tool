@@ -15,6 +15,6 @@ var Mongoose = require('mongoose'),
         }
     });
 
-userSchema.pluguin(plugin);
+userSchema.plugin(plugin);
 
 module.exports = Mongoose.model('User', userSchema);
