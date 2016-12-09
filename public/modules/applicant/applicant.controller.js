@@ -25,7 +25,8 @@
                 name: vm.name,
                 skills: vm.skills,
                 prefer_salary: vm.preferSalary,
-                comment: vm.comment
+                comment: vm.comment,
+                position: vm.position
             });
         }
     }

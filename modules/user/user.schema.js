@@ -12,6 +12,14 @@ var Mongoose = require('mongoose'),
         birthday: {
             type: Date,
             require: true
+        },
+        _applicant: {
+            type: Schema.Types.ObjectId,
+            ref: 'Applicant'
+        },
+        _position: {
+            type: Schema.Types.ObjectId,
+            ref: 'Position'
         }
     });
 
