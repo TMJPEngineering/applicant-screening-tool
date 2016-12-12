@@ -1,26 +1,36 @@
 <!-- HTML GOES HERE -->
 <div class="container">
   <form>
-    <div class="form-group">
-      <label>Name</label>
-      <input type="text" class="form-control" placeholder="Name" ng-model="ac.name">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" class="form-control" placeholder="Name" ng-model="ac.name">
+        </div>
+      </div>
     </div>
-    <div class="form-group">
-      <label>Position</label>
-      <input type="text" class="form-control" placeholder="Position" ng-model="ac.position">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Position</label>
+          <input type="text" class="form-control" placeholder="Position" ng-model="ac.position">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Preferred Salary</label>
+          <input type="text" class="form-control" placeholder="Prefer Salary" ng-model="ac.preferSalary">
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label>Skills</label>
       <input type="text" class="form-control" placeholder="Skills [e.g. JS, CSS]" ng-model="ac.skills">
     </div>
     <div class="form-group">
-      <label>Prefer Salary</label>
-      <input type="text" class="form-control" placeholder="Prefer Salary" ng-model="ac.preferSalary">
-    </div>
-    <div class="form-group">
       <label>Comment</label>
-      <input type="text" class="form-control" placeholder="Comment" ng-model="ac.comment">
+      <textarea class="form-control" rows="5" placeholder="Comment" ng-model="ac.comment"></textarea>
     </div>
-    <button type="submit" class="btn btn-primary" ng-click="ac.save()">Save</button>
+    <button type="submit" class="btn btn-primary pull-right" ng-click="ac.save()">Save</button>
   </form>
 </div>
