@@ -7,7 +7,7 @@ var Applicant = require('./applicant.schema'),
 module.exports = {
     save: function(params) {
         var applicant = new Applicant({
-            prefer_salary: params.prefer_salary,
+            preferred_salary: params.preferred_salary,
             skills: params.skills,
             comment: params.comment
         });
@@ -22,16 +22,16 @@ module.exports = {
             var positionId;
 
             if (position == 0) {
-                var pos = Position.save({
+                positionId = Position.save({
                     name: params.position
                 });
-                positionId = pos._id;
             } else {
                 positionId = position._id;
             }
 
             User.save({
                 name: params.name,
+                birthday: params.birthday,
                 _applicant: applicant._id,
                 _position: positionId
             });

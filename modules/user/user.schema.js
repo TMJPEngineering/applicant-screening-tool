@@ -25,4 +25,16 @@ var Mongoose = require('mongoose'),
 
 userSchema.plugin(plugin);
 
+userSchema.virtual('age')
+    .get(function() {
+        var today = new Date();
+        var birthday = new Date(this.birthday);
+        var age = today.getFullYear() - this.birthday.getFullYear();
+        var m = today.getMonth() - this.birthday.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < this.birthday.getDate())) {
+            age--;
+        }
+        return age;
+    });
+
 module.exports = Mongoose.model('User', userSchema);

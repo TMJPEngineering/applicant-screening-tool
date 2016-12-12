@@ -23,8 +23,9 @@
         function save() {
             applicantFactory.save({
                 name: vm.name,
+                birthday: vm.birthday,
                 skills: vm.skills,
-                prefer_salary: vm.preferSalary,
+                preferred_salary: vm.preferredSalary,
                 comment: vm.comment,
                 position: vm.position
             });
