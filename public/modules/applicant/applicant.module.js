@@ -6,7 +6,7 @@
 (function(app) {
     'use strict';
 
-    app.registerModule('home', [
+    app.registerModule('applicant', [
 
     ]);
 })(angularAppConfig);
