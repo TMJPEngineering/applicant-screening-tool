@@ -7,8 +7,8 @@ var Applicant = require('./applicant.schema'),
 module.exports = {
     save: function(params) {
         var applicant = new Applicant({
-            preferred_salary: params.preferred_salary,
-            skills: params.skills,
+            preferred_salary: parseInt(params.preferred_salary),
+            skills: params.skills.split(','),
             comment: params.comment
         });
 
@@ -16,12 +16,12 @@ module.exports = {
             if (err) throw err;
         });
 
-        var position = Position.find({
+        var position = Position.findOne({
             name: params.position
         }).then(function(position) {
             var positionId;
 
-            if (position == 0) {
+            if (position === null) {
                 positionId = Position.save({
                     name: params.position
                 });
