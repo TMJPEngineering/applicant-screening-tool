@@ -6,7 +6,7 @@ var Mongoose = require('mongoose'),
 
     applicantSchema = new Mongoose.Schema({
         preferred_salary: {
-            type: String,
+            type: Schema.Types.Number,
             require: true
         },
         skills: {
