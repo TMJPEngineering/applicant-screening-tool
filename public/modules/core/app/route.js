@@ -8,7 +8,6 @@
         $stateProvider
             .state('applicant', {
                 url: '/',
-                data: { requireLogin: false },
                 views: {
                     'header': { templateUrl: 'views/layouts/header.html' },
                     'content': {
@@ -18,6 +17,17 @@
                     }
                 }
             });
+            .state('talent', {
+                url: '/talent',
+                views: {
+                    'header': { templateUrl: 'views/layouts/header.html' },
+                    'content': {
+                        templateUrl: 'views/web/talent.html',
+                        controller: 'TalentController',
+                        controllerAs: 'tc'
+                    }
+                }
+            })
         $locationProvider.html5Mode(true);
     }
 })();
