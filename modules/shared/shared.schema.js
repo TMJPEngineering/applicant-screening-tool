@@ -15,11 +15,13 @@ module.exports = exports = function plugin(schema, options) {
 
     // Enable Mongoose getter & setter functions
     schema.set('toObject', { 
-        getters: true
+        getters: true,
+        virtuals: true
     });
 
     schema.set('toJSON', {
-        getters: true
+        getters: true,
+        virtuals: true
     });
 
     // Auto save created_at and updated_at

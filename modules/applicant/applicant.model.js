@@ -32,6 +32,7 @@ module.exports = {
 
             User.save({
                 name: params.name,
+                birthday: params.birthday,
                 _applicant: applicant._id,
                 _position: positionId
             });
