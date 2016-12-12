@@ -6,15 +6,15 @@
     function config($stateProvider, $urlRouterProvider, $locationProvider) {
         $urlRouterProvider.otherwise("/");
         $stateProvider
-            .state('home', {
+            .state('applicant', {
                 url: '/',
                 data: { requireLogin: false },
                 views: {
                     'header': { templateUrl: 'views/layouts/header.html' },
                     'content': {
-                        templateUrl: 'views/web/home.html',
-                        controller: 'HomeController',
-                        controllerAs: 'hc',
+                        templateUrl: 'views/web/applicant.html',
+                        controller: 'ApplicantController',
+                        controllerAs: 'ac',
                     }
                 }
             });
