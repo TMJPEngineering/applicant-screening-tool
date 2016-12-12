@@ -5,7 +5,7 @@ var Mongoose = require('mongoose'),
     plugin = require('./../shared/shared.schema'),
 
     applicantSchema = new Mongoose.Schema({
-        prefer_salary: {
+        preferred_salary: {
             type: String,
             require: true
         },
