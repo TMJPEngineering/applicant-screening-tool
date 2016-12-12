@@ -16,7 +16,7 @@
                         controllerAs: 'ac',
                     }
                 }
-            });
+            })
             .state('talent', {
                 url: '/talent',
                 views: {
