@@ -17,6 +17,28 @@
         activate();
 
         function activate() {
+            vm.search = search;
+        }
+
+        function search() {
+            var next = false,
+                data = {
+                    position: vm.position,
+                    skills: vm.skills,
+                    from: vm.fromAge,
+                    to: vm.toAge
+                };
+
+            for (var index in data) {
+                if (data[index] !== undefined)
+                    next = true;
+            }
+
+            if (next) {
+                talentFactory.getTalents(data).then(function(talents) {
+                    vm.results = talents;
+                });
+            }
         }
     }
 })();
