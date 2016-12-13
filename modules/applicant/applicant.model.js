@@ -16,7 +16,7 @@ module.exports = {
             if (err) throw err;
         });
 
-        var position = Position.findOne({
+        var position = Position.getPosition({
             name: params.position
         }).then(function(position) {
             var positionId;

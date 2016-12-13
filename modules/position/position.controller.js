@@ -1,6 +1,6 @@
 'use strict';
 
-var User = require('./user.model');
+var Position = require('./position.model');
 
 module.exports = function(method) {
     var methods = {
@@ -11,8 +11,8 @@ module.exports = function(method) {
 
     function index() {
         return function(req, res, next) {
-            User.getUsers(req.query).then(function(users) {
-                return res.json(users);
+            Position.getPositions(req.query).then(function(positions) {
+                return res.json(positions);
             });
         }
     }
