@@ -22,6 +22,7 @@ module.exports = {
 
         user.populate('_applicant', null, applicantQuery);
         user.populate('_position', null, positionQuery);
+
         return user.exec(function(err, users) {
             if (err) throw err;
         });

@@ -29,7 +29,8 @@
                     position: vm.position,
                     skills: vm.skills,
                     from: vm.fromAge,
-                    to: vm.toAge
+                    to: vm.toAge,
+                    sort: vm.sortBy
                 };
 
             for (var index in data) {
