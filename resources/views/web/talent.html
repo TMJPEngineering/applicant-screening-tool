@@ -29,14 +29,14 @@
         <table class="table table-bordered table-hover table-condensed table-striped">
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Age</th>
-              <th>Preferred Salary</th>
+              <th><a ng-click="tc.sort('name', !tc.reverseSort)">Name</a></th>
+              <th><a ng-click="tc.sort('age', !tc.reverseSort)">Age</a></th>
+              <th><a ng-click="tc.sort('preferred_salary', !tc.reverseSort)">Preferred Salary</a></th>
               <th>Actions</th>
             </tr>
           </thead>
           <tbody>
-            <tr ng-repeat="result in tc.results">
+            <tr ng-repeat="result in tc.results | orderBy: tc.field : tc.reverseSort">
               <td ng-bind="result.name"></td>
               <td ng-bind="result.age"></td>
               <td ng-bind="result._applicant.preferred_salary"></td>

@@ -18,6 +18,9 @@
 
         function activate() {
             vm.search = search;
+            vm.sort = sort;
+            vm.field = 'name';
+            vm.reverseSort = false;
         }
 
         function search() {
@@ -39,6 +42,11 @@
                     vm.results = talents;
                 });
             }
+        }
+
+        function sort(field, sort) {
+            vm.field = field;
+            vm.reverseSort = sort;
         }
     }
 })();
