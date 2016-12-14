@@ -28,8 +28,7 @@
                     position: vm.position,
                     skills: vm.skills,
                     from: vm.fromAge,
-                    to: vm.toAge,
-                    sort: vm.sortBy
+                    to: vm.toAge
                 };
 
             for (var index in data) {
@@ -40,7 +39,10 @@
             if (next) {
                 talentFactory.getTalents(data).then(function(talents) {
                     vm.results = talents;
-                    vm.order = {};
+                    if (vm.sortBy) {
+                        vm.order.field = vm.sortBy;
+                        vm.order.reverseSort = false;
+                    }
                 });
             }
         }

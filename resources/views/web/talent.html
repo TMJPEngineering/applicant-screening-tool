@@ -20,8 +20,8 @@
           <label class="sr-only">Sort By</label>
           <select ng-model="tc.sortBy" class="form-control">
             <option value="">Sort By</option>          
-            <option value="skills">Most numbers of relevant skills</option>
-            <option value="preferred_salary">Cheapest</option>
+            <option value="_applicant.count_skills">Most numbers of relevant skills</option>
+            <option value="_applicant.preferred_salary">Cheapest</option>
             <option value="age">Youngest</option>
           </select>
         </div>
@@ -41,6 +41,7 @@
               <th><a ng-click="tc.sort('name', !tc.order.reverseSort)">Name</a></th>
               <th><a ng-click="tc.sort('age', !tc.order.reverseSort)">Age</a></th>
               <th><a ng-click="tc.sort('_applicant.preferred_salary', !tc.order.reverseSort)">Preferred Salary</a></th>
+              <th><a ng-click="tc.sort('_applicant.count_skills', !tc.order.reverseSort)">Skills</a></th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -49,6 +50,11 @@
               <td ng-bind="result.name"></td>
               <td ng-bind="result.age"></td>
               <td ng-bind="result._applicant.preferred_salary"></td>
+              <td>
+                <ul ng-repeat="skill in result._applicant.skills">
+                  <li ng-bind="skill"></li>
+                </ul>
+              </td>
               <td><button class="btn btn-primary">View</button></td>
             </tr>
           </tbody>

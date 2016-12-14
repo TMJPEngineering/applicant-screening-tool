@@ -20,15 +20,8 @@ module.exports = {
             match.position = { name: params.position };
         }
 
-        if (params.sort) {
-            // if (params.sort === 'skills')
-            //     options.applicant = { sort: { skills: 1} };
-            // if (params.sort === 'preferred_salary')
-            //     options.applicant = { sort: { preferred_salary: -1 } };
-        }
-
-        user.populate({ path: '_applicant', match: match.applicant, options: options.applicant });
-        user.populate({ path: '_position', match: match.position, options: options.position });
+        user.populate({ path: '_applicant', match: match.applicant });
+        user.populate({ path: '_position', match: match.position });
 
         return user.exec(function(err, users) {
             if (err) throw err;
