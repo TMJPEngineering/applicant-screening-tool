@@ -5,23 +5,24 @@ var User = require('./user.schema');
 module.exports = {
     getUsers: function(params) {
         var user = User.find(),
-            applicantQuery = {},
-            positionQuery = {};
+            options = {},
+            match = {};
 
         if (params.from && params.to) {
             user.where('age').gte(params.from).lte(params.to);
         }
 
         if (params.skills) {
-            applicantQuery = { skills: { $in: params.skills.split(',') } };
+            match.applicant = { skills: { $in: params.skills.split(',') } };
         }
 
         if (params.position) {
-            positionQuery = { name: params.position };
+            match.position = { name: params.position };
         }
 
-        user.populate('_applicant', null, applicantQuery);
-        user.populate('_position', null, positionQuery);
+        user.populate({ path: '_applicant', match: match.applicant });
+        user.populate({ path: '_position', match: match.position });
+
         return user.exec(function(err, users) {
             if (err) throw err;
         });

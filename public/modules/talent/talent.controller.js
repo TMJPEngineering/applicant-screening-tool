@@ -19,8 +19,7 @@
         function activate() {
             vm.search = search;
             vm.sort = sort;
-            vm.field = 'name';
-            vm.reverseSort = false;
+            vm.order = {};
         }
 
         function search() {
@@ -40,13 +39,22 @@
             if (next) {
                 talentFactory.getTalents(data).then(function(talents) {
                     vm.results = talents;
+                    if (vm.sortBy) {
+                        vm.order.field = vm.sortBy;
+                        vm.order.reverseSort = false;
+                    }
                 });
             }
         }
 
-        function sort(field, sort) {
-            vm.field = field;
-            vm.reverseSort = sort;
+        function sort(field, reverseSort) {
+            if (vm.order.field !== field) {
+                vm.order.field = field;
+                vm.order.reverseSort = false;
+            } else {
+                vm.order.field = field;
+                vm.order.reverseSort = reverseSort;
+            }
         }
     }
 })();
