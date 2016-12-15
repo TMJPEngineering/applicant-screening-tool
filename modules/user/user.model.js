@@ -1,15 +1,16 @@
 'use strict';
 
-var User = require('./user.schema');
+var User = require('./user.schema'),
+    Skill = require('./../skill/skill.schema');
 
 module.exports = {
     getUsers: function(params) {
-        var user = User.find(),
+        var users = User.find(),
             options = {},
             match = {};
 
         if (params.from && params.to) {
-            user.where('age').gte(params.from).lte(params.to);
+            users.where('age').gte(params.from).lte(params.to);
         }
 
         if (params.skills) {
@@ -20,16 +21,16 @@ module.exports = {
             match.position = { name: params.position };
         }
 
-        user.populate({ path: '_applicant', match: match.applicant });
-        user.populate({ path: '_position', match: match.position });
+        users.populate({ path: '_applicant', match: match.applicant, populate: { path: '_skills' } });
+        users.populate({ path: '_position', match: match.position });
 
-        return user.exec(function(err, users) {
+        return users.exec(function(err, users) {
             if (err) throw err;
         });
     },
     getUser: function(params) {
         return User.findById(params.id)
-            .populate('_applicant')
+            .populate({ path: '_applicant', populate: { path: '_skills' } })
             .populate('_position')
             .exec(function(err, user) {
                 if (err) throw err;
