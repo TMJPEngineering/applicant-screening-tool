@@ -19,7 +19,10 @@
         function activate() {
             vm.search = search;
             vm.sort = sort;
+            vm.view = view;
             vm.order = {};
+            vm.showResults = false;
+            vm.showResume = false;
         }
 
         function search() {
@@ -42,7 +45,10 @@
                     if (vm.sortBy) {
                         vm.order.field = vm.sortBy;
                         vm.order.reverseSort = false;
+                        if (vm.sortBy == '_applicant.count_skills')
+                            vm.order.reverseSort = !vm.order.reverseSort;
                     }
+                    vm.showResults = true;
                 });
             }
         }
@@ -55,6 +61,13 @@
                 vm.order.field = field;
                 vm.order.reverseSort = reverseSort;
             }
+        }
+
+        function view(id) {
+            talentFactory.getTalent(id).then(function(talent) {
+                vm.result = talent;
+                vm.showResume = true;
+            });
         }
     }
 })();

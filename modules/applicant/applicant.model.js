@@ -2,14 +2,23 @@
 
 var Applicant = require('./applicant.schema'),
     User = require('./../user/user.model'),
+    Skill = require('./../skill/skill.model'),
     Position = require('./../position/position.model');
 
 module.exports = {
     save: function(params) {
+        var skills = params.skills.split(',');
+        var skillIds = [];
+
+        skills.forEach(function(name) {
+            var id = Skill.save({ name: name });
+            skillIds.push(id);
+        });
+
         var applicant = new Applicant({
             preferred_salary: parseInt(params.preferred_salary),
-            skills: params.skills.split(','),
-            comment: params.comment
+            comment: params.comment,
+            _skills: skillIds
         });
 
         applicant.save(function(err) {
