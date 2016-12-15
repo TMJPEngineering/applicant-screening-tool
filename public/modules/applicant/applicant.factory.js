@@ -7,7 +7,8 @@
 
     function factory($http) {
         var factory = {
-            save: save
+            save: save,
+            getTags: getTags
         };
 
         return factory;
@@ -15,6 +16,12 @@
         function save(params) {
             $http.post('/api/applicants', params).then(function(res) {
                 console.log(res);
+            });
+        }
+
+        function getTags(modelName) {
+            return $http.get('/api/' + modelName).then(function(res) {
+                return res.data;
             });
         }
     }

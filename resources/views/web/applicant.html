@@ -12,7 +12,10 @@
       <div class="col-md-6">
         <div class="form-group">
           <label>Position</label>
-          <input type="text" class="form-control" placeholder="Position" ng-model="ac.position">
+          <input class="form-control" ng-model="ac.position" placeholder="Position">
+<!--           <tags-input class="bootstrap" ng-model="ac.position" placeholder="Position" replace-spaces-with-dashes="false">
+            <auto-complete source=ac.loadTags('positions')></auto-complete>
+          </tags-input> -->
         </div>
       </div>
       <div class="col-md-6">
@@ -30,6 +33,7 @@
         <div class="form-group">
           <label>Gender</label>
           <select ng-model="gender" class="form-control">
+            <option value="">Select gender</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
           </select>
@@ -44,7 +48,9 @@
     </div>
     <div class="form-group">
       <label>Skills</label>
-      <input type="text" class="form-control" placeholder="Skills [e.g. JS, CSS]" ng-model="ac.skills">
+      <tags-input class="bootstrap" ng-model="ac.skills" placeholder="Skills"  replace-spaces-with-dashes="false">
+        <auto-complete source=ac.loadTags('skills')></auto-complete>
+      </tags-input>
     </div>
     <div class="form-group">
       <label>Comment</label>

@@ -20,6 +20,7 @@
             vm.search = search;
             vm.sort = sort;
             vm.view = view;
+            vm.loadTags = loadTags;
             vm.order = {};
             vm.showResults = false;
             vm.showResume = false;
@@ -67,6 +68,18 @@
             talentFactory.getTalent(id).then(function(talent) {
                 vm.result = talent;
                 vm.showResume = true;
+            });
+        }
+
+        function loadTags(modelName) {
+            var skillsSet = [];
+
+            return talentFactory.getTags(modelName).then(function(skills) {
+                skills.forEach(function(skill) {
+                    skillsSet.push(skill.name);
+                });
+
+                return skillsSet;
             });
         }
     }

@@ -9,7 +9,9 @@
         </div>
         <div class="form-group">
           <label class="sr-only">Skills Required</label>
-          <input type="text" ng-model="tc.skills" class="form-control" placeholder="Skills [e.g. JS, CSS]">
+          <tags-input class="bootstrap" ng-model="tc.skills" placeholder="Add a skill" replace-spaces-with-dashes="false">
+            <auto-complete source=tc.loadTags('skills')></auto-complete>
+          </tags-input>
         </div>
         <div class="form-group">
           <label class="sr-only">Age Range (optional)</label>
