@@ -1,0 +1,65 @@
+<div class="container">
+  <form class="form form-inline">
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Advanced Search</h3>
+        <div class="form-group">
+          <label class="sr-only">Position</label>
+          <input type="text" class="form-control" placeholder="Position" ng-model="tc.position">
+        </div>
+        <div class="form-group">
+          <label class="sr-only">Skills Required</label>
+          <input type="text" ng-model="tc.skills" class="form-control" placeholder="Skills [e.g. JS, CSS]">
+        </div>
+        <div class="form-group">
+          <label class="sr-only">Age Range (optional)</label>
+          <input type="number" ng-model="tc.fromAge" class="form-control" placeholder="Age from" min="1">
+          <input type="number" ng-model="tc.toAge" class="form-control" placeholder="Age to" min="1">
+        </div>
+        <div class="form-group">
+          <label class="sr-only">Sort By</label>
+          <select ng-model="tc.sortBy" class="form-control">
+            <option value="">Sort By</option>          
+            <option value="_applicant.count_skills">Most numbers of relevant skills</option>
+            <option value="_applicant.preferred_salary">Cheapest</option>
+            <option value="age">Youngest</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-info" ng-click="tc.search()">Search</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="col-md-12">
+    <div class="row">
+      <div class="form-group">
+        <h3>Results</h3>
+        <table class="table table-bordered table-hover table-condensed table-striped">
+          <thead>
+            <tr>
+              <th><a ng-click="tc.sort('name', !tc.order.reverseSort)">Name</a></th>
+              <th><a ng-click="tc.sort('age', !tc.order.reverseSort)">Age</a></th>
+              <th><a ng-click="tc.sort('_applicant.preferred_salary', !tc.order.reverseSort)">Preferred Salary</a></th>
+              <th><a ng-click="tc.sort('_applicant.count_skills', !tc.order.reverseSort)">Skills</a></th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="result in tc.results | orderBy: tc.order.field : tc.order.reverseSort">
+              <td ng-bind="result.name"></td>
+              <td ng-bind="result.age"></td>
+              <td ng-bind="result._applicant.preferred_salary"></td>
+              <td>
+                <ul ng-repeat="skill in result._applicant.skills">
+                  <li ng-bind="skill"></li>
+                </ul>
+              </td>
+              <td><button class="btn btn-primary">View</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
