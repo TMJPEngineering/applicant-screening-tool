@@ -3,12 +3,12 @@
 var Position = require('./position.schema');
 
 module.exports = {
-    find: function(params) {
+    getPositions: function(params) {
         return Position.find(params).exec(function(err, position) {
             if (err) throw err;
         });
     },
-    findOne: function(params) {
+    getPosition: function(params) {
         return Position.findOne(params).exec(function(err, position) {
             if (err) throw err;
         });

@@ -23,4 +23,9 @@ var Mongoose = require('mongoose'),
 
 applicantSchema.plugin(plugin);
 
+applicantSchema.virtual('count_skills')
+    .get(function() {
+        return this.skills.length
+    });
+
 module.exports = Mongoose.model('Applicant', applicantSchema);

@@ -7,12 +7,36 @@
   <!--styles-->
   <link rel="stylesheet" type="text/css" href="assets/css/app.css">
   <link rel="stylesheet" type="text/css" href="assets/css/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet">
 </head>
 
-<body>
+<body class="main-background">
   <div id="main">
-    <div ui-view="header"></div>
-    <div ui-view="content" class="content"></div>
+    <div class="content-main">
+      <div class="content-box">
+        <div ui-view="header"></div>
+      </div>
+    </div>
+    <div class="content-main">
+      <div class="content-box">
+        <div ui-view="content" class="content"></div>
+      </div>
+    </div>
+    <div class="content-main">
+      <div class="content-box">
+        <footer class="page-footer white-text">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <h5>Footer Content</h5>
+                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
   </div>
   <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
   <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
@@ -24,6 +48,9 @@
   <script type="text/javascript" src="modules/applicant/applicant.module.js"></script>
   <script type="text/javascript" src="modules/applicant/applicant.controller.js"></script>
   <script type="text/javascript" src="modules/applicant/applicant.factory.js"></script>
+  <script type="text/javascript" src="modules/talent/talent.module.js"></script>
+  <script type="text/javascript" src="modules/talent/talent.controller.js"></script>
+  <script type="text/javascript" src="modules/talent/talent.factory.js"></script>
   <!--Shared-->
   <script type="text/javascript" src="modules/shared/navigation/navigation.module.js"></script>
 </body>

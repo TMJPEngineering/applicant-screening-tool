@@ -1,33 +1,55 @@
-<!-- HTML GOES HERE -->
 <div class="container">
   <form>
-    <div class="form-group">
-      <label>Name</label>
-      <input type="text" class="form-control" placeholder="Name" ng-model="ac.name">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" class="form-control" placeholder="Name" ng-model="ac.name">
+        </div>
+      </div>
     </div>
-    <div class="form-group">
-      <label>Position</label>
-      <input type="text" class="form-control" placeholder="Position" ng-model="ac.position">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Position</label>
+          <input type="text" class="form-control" placeholder="Position" ng-model="ac.position">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Preferred Salary</label>
+          <div class="input-group">
+            <div class="input-group-addon">P</div>
+            <input type="text" class="form-control" placeholder="Amount" ng-model="ac.preferredSalary">
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="form-group">
-      <label>Birthday</label>
-      <input type="date" class="form-control" placeholder="Birthday" ng-model="ac.birthday">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Gender</label>
+          <select ng-model="gender" class="form-control">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Birthday</label>
+          <input type="date" class="form-control" placeholder="Birthday" ng-model="ac.birthday">
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label>Skills</label>
       <input type="text" class="form-control" placeholder="Skills [e.g. JS, CSS]" ng-model="ac.skills">
     </div>
     <div class="form-group">
-      <label>Preferred Salary</label>
-      <div class="input-group">
-        <div class="input-group-addon">P</div>
-        <input type="text" class="form-control" placeholder="Amount" ng-model="ac.preferredSalary">
-      </div>
-    </div>
-    <div class="form-group">
       <label>Comment</label>
-      <input type="text" class="form-control" placeholder="Comment" ng-model="ac.comment">
+      <textarea class="form-control" rows="5" placeholder="Comment" ng-model="ac.comment"></textarea>
     </div>
-    <button type="submit" class="btn btn-primary" ng-click="ac.save()">Save</button>
+    <button type="submit" class="btn btn-primary pull-right" ng-click="ac.save()">Save</button>
   </form>
 </div>
