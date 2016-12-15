@@ -31,7 +31,7 @@
       </div>
     </div>
   </form>
-  <div class="col-md-12">
+  <div class="col-md-12" ng-show="tc.showResults">
     <div class="row">
       <div class="form-group">
         <h3>Results</h3>
@@ -55,10 +55,39 @@
                   <li ng-bind="skill"></li>
                 </ul>
               </td>
-              <td><button class="btn btn-primary">View</button></td>
+              <td><button class="btn btn-default" ng-click="tc.view(result._id)" data-toggle="modal" data-backdrop='static' href="/talent#modal-id">View</button></td>
+            </tr>
+            <tr ng-if="tc.results.length === 0">
+              <td colspan="5" align="center">No results found</td>
             </tr>
           </tbody>
         </table>
+        <div ng-show="tc.showResume">
+          <div ng-if="tc.result.length !== 0">
+            <div class="modal fade" id="modal-id">
+              <div class="modal-dialog">
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="modal-title">My Resume</h4>
+                  </div>
+                  <div class="panel-body">
+                    <p>Name: <strong ng-bind="tc.result.name | uppercase "></strong></p>
+                    <p>Age: <strong ng-bind="tc.result.age"></strong></p>
+                    <p>Birthday: <strong ng-bind="tc.result.birthday | date "></strong></p>
+                    <p>
+                      Skills: <strong ng-bind="tc.result._applicant.skills | implode "></strong>
+                    </p>
+                    <p>Position: <strong ng-bind="tc.result._position.name"></strong></p>
+                    <p>Preferred Salary: <strong ng-bind="tc.result._applicant.preferred_salary | currency: 'P ' "></strong></p>
+                  </div>
+                  <div class="panel-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -27,6 +27,14 @@ module.exports = {
             if (err) throw err;
         });
     },
+    getUser: function(params) {
+        return User.findById(params.id)
+            .populate('_applicant')
+            .populate('_position')
+            .exec(function(err, user) {
+                if (err) throw err;
+            });
+    },
     save: function(params) {
         var user = new User(params);
         user.setAge(params.birthday);
