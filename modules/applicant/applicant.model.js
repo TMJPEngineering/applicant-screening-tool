@@ -7,11 +7,10 @@ var Applicant = require('./applicant.schema'),
 
 module.exports = {
     save: function(params) {
-        var skills = params.skills.split(',');
         var skillIds = [];
 
-        skills.forEach(function(name) {
-            var id = Skill.save({ name: name });
+        params.skills.forEach(function(skill) {
+            var id = Skill.save({ name: skill.text });
             skillIds.push(id);
         });
 

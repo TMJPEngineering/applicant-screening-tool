@@ -5,12 +5,14 @@
         <h3>Advanced Search</h3>
         <div class="form-group">
           <label class="sr-only">Position</label>
-          <input type="text" class="form-control" placeholder="Position" ng-model="tc.position">
+          <tags-input ng-model="ac.position" placeholder="Position" replace-spaces-with-dashes="false" max-tags="1">
+            <auto-complete source=ac.loadTags('positions')></auto-complete>
+          </tags-input>
         </div>
         <div class="form-group">
           <label class="sr-only">Skills Required</label>
-          <tags-input class="bootstrap" ng-model="tc.skills" placeholder="Add a skill" replace-spaces-with-dashes="false">
-            <auto-complete source=tc.loadTags('skills')></auto-complete>
+          <tags-input ng-model="tc.skills" placeholder="Add a skill" replace-spaces-with-dashes="false">
+            <auto-complete source="tc.loadTags('skills')"></auto-complete>
           </tags-input>
         </div>
         <div class="form-group">
@@ -37,7 +39,7 @@
     <div class="row">
       <div class="form-group">
         <h3>Results</h3>
-        <table class="table table-bordered table-hover table-condensed table-striped">
+        <table class="table table-bordered table-hover table-condensed table-striped small">
           <thead>
             <tr>
               <th><a ng-click="tc.sort('name', !tc.order.reverseSort)">Name</a></th>
@@ -69,7 +71,7 @@
         <div ng-show="tc.showResume">
           <div ng-if="tc.result.length !== 0">
             <div class="modal fade" id="modal-id">
-              <div class="modal-dialog">
+              <div class="modal-dialog small">
                 <div class="panel panel-info">
                   <div class="panel-heading">
                     <h4 class="modal-title">My Resume</h4>
