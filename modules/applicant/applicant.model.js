@@ -7,24 +7,29 @@ var Applicant = require('./applicant.schema'),
 
 module.exports = {
     save: function(params) {
-        var skillIds = [];
-
-        params.skills.forEach(function(skill) {
-            var id = Skill.save({ name: skill.text });
-            skillIds.push(id);
-        });
-
         var applicant = new Applicant({
             preferred_salary: parseInt(params.preferred_salary),
             comment: params.comment,
-            _skills: skillIds
+            _skills: []
         });
 
         applicant.save(function(err) {
             if (err) throw err;
         });
 
-        var position = Position.getPosition({
+        params.skills.forEach(function(skill) {
+            Skill.firstOrCreate({ name: skill.text }).then(function(id) {
+                Applicant.findById(applicant._id, function(err, applicant) {
+                    if (err) throw err;
+                    applicant._skills.push(id);
+                    applicant.save(function(err) {
+                        if (err) throw err;
+                    });
+                });
+            });
+        });
+
+        Position.getPosition({
             name: params.position
         }).then(function(position) {
             var positionId;

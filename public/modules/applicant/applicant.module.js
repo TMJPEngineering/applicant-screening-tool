@@ -7,6 +7,6 @@
     'use strict';
 
     app.registerModule('applicant', [
-
+        'toast'
     ]);
 })(angularAppConfig);

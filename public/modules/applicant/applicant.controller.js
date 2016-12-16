@@ -18,6 +18,7 @@
 
         function activate() {
            vm.save = save;
+           vm.position = [];
            vm.loadTags = loadTags;
         }
 
@@ -28,7 +29,7 @@
                 skills: vm.skills,
                 preferred_salary: vm.preferredSalary,
                 comment: vm.comment,
-                position: vm.position
+                position: (vm.position.length) ? vm.position[0].text : ''
             });
         }
 
@@ -39,7 +40,6 @@
                 skills.forEach(function(skill) {
                     skillsSet.push(skill.name);
                 });
-
                 return skillsSet;
             });
         }
