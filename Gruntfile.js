@@ -18,7 +18,7 @@ module.exports = function(grunt) {
                 dest: 'public/assets/dist/core.js'
             },
             shared: {
-                src: ['public/modules/shared/navigation/navigation'],
+                src: ['public/modules/shared/navigation/navigation.js'],
                 dest: 'public/assets/dist/shared.js'
             },
             talent: {
@@ -32,22 +32,22 @@ module.exports = function(grunt) {
         },
         uglify: {
             applicant: {
-                options: { mangle: true, compress: true },
+                options: { mangle: false, compress: true },
                 src: 'public/assets/dist/applicant.js',
                 dest: 'public/assets/dist/applicant.min.js'
             },
             core: {
-                options: { mangle: true, compress: true },
+                options: { mangle: false, compress: true },
                 src: 'public/assets/dist/core.js',
                 dest: 'public/assets/dist/core.min.js'
             },
             shared: {
-                options: { mangle: true, compress: true },
+                options: { mangle: false, compress: true },
                 src: 'public/assets/dist/shared.js',
                 dest: 'public/assets/dist/shared.min.js'
             },
             talent: {
-                options: { mangle: true, compress: true },
+                options: { mangle: false, compress: true },
                 src: 'public/assets/dist/talent.js',
                 dest: 'public/assets/dist/talent.min.js'
             },
