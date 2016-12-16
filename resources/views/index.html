@@ -4,9 +4,11 @@
 <head>
   <base href="/">
   <title>Mean</title>
-  <!--styles-->
+  <!-- Styles -->
   <link rel="stylesheet" type="text/css" href="assets/css/app.css">
   <link rel="stylesheet" type="text/css" href="assets/css/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="bower_components/ng-tags-input/ng-tags-input.min.css">
+  <link rel="stylesheet" type="text/css" href="bower_components/ng-tags-input/ng-tags-input.bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet">
 </head>
@@ -38,21 +40,19 @@
       </div>
     </div>
   </div>
-  <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
-  <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-  <!--Core-->
-  <script type="text/javascript" src="modules/core/app/config.js"></script>
-  <script type="text/javascript" src="modules/core/app/init.js"></script>
-  <script type="text/javascript" src="modules/core/app/route.js"></script>
-  <!--Modules-->
-  <script type="text/javascript" src="modules/applicant/applicant.module.js"></script>
-  <script type="text/javascript" src="modules/applicant/applicant.controller.js"></script>
-  <script type="text/javascript" src="modules/applicant/applicant.factory.js"></script>
-  <script type="text/javascript" src="modules/talent/talent.module.js"></script>
-  <script type="text/javascript" src="modules/talent/talent.controller.js"></script>
-  <script type="text/javascript" src="modules/talent/talent.factory.js"></script>
-  <!--Shared-->
-  <script type="text/javascript" src="modules/shared/navigation/navigation.module.js"></script>
+  <!-- Bower Components -->
+  <script src="bower_components/jquery-2.2.4.min/index.js"></script>
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="assets/css/bootstrap/dist/js/bootstrap.min.js"></script>
+  <!-- Dist -->
+  <script src="assets/dist/core.min.js"></script>
+  <script src="assets/dist/applicant.min.js"></script>
+  <script src="assets/dist/talent.min.js"></script>
+  <script src="assets/dist/shared.min.js"></script>
+  <!-- Ng Tags Input -->
+  <script src="bower_components/ng-tags-input/ng-tags-input.js"></script>
 </body>
 
 </html>

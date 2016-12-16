@@ -9,23 +9,22 @@ var Mongoose = require('mongoose'),
             type: Schema.Types.Number,
             require: true
         },
-        skills: {
-            type: Array,
-            require: false,
-            default: []
-        },
         comment: {
             type: String,
             require: false,
             default: ''
-        }
+        },
+        _skills: [{
+            type: Schema.Types.ObjectId,
+            ref: 'Skill'
+        }]
     });
 
 applicantSchema.plugin(plugin);
 
 applicantSchema.virtual('count_skills')
     .get(function() {
-        return this.skills.length
+        return this._skills.length
     });
 
 module.exports = Mongoose.model('Applicant', applicantSchema);
