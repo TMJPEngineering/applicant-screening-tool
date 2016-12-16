@@ -17,9 +17,6 @@ module.exports = {
             if (err) throw err;
         });
 
-        var skillIds = [];
-        var skills = [];
-
         params.skills.forEach(function(skill) {
             Skill.firstOrCreate({ name: skill.text }).then(function(id) {
                 Applicant.findById(applicant._id, function(err, applicant) {
