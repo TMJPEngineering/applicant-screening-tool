@@ -7,7 +7,9 @@
 
     function factory($http) {
         var factory = {
-            getTalents: getTalents
+            getTalents: getTalents,
+            getTalent: getTalent,
+            getTags: getTags
         };
 
         return factory;
@@ -17,6 +19,18 @@
                 return res.data.filter(function(user) {
                     return user._applicant !== null && user._position !== null;
                 });
+            });
+        }
+
+        function getTalent(id) {
+            return $http.get('/api/users/' + id).then(function(res) {
+                return res.data;
+            });
+        }
+
+        function getTags(modelName) {
+            return $http.get('/api/' + modelName).then(function(res) {
+                return res.data;
             });
         }
     }
