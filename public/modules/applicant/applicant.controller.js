@@ -18,6 +18,7 @@
 
         function activate() {
            vm.save = save;
+           vm.loadTags = loadTags;
         }
 
         function save() {
@@ -28,6 +29,18 @@
                 preferred_salary: vm.preferredSalary,
                 comment: vm.comment,
                 position: vm.position
+            });
+        }
+
+        function loadTags(modelName) {
+            var skillsSet = [];
+
+            return applicantFactory.getTags(modelName).then(function(skills) {
+                skills.forEach(function(skill) {
+                    skillsSet.push(skill.name);
+                });
+
+                return skillsSet;
             });
         }
     }
