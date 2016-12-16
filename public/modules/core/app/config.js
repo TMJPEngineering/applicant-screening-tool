@@ -10,8 +10,7 @@
     var moduleSharedDependencies = [
         // insert global shared modules here
         'ui.router',
-        'navigation',
-        // 'ngTagInput'
+        'navigation'
     ];
 
     var config = {
