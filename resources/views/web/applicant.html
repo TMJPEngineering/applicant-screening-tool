@@ -12,7 +12,7 @@
       <div class="col-md-6">
         <div class="form-group">
           <label>Position</label>
-          <tags-input class="bootstrap" ng-model="ac.position" placeholder="Position" replace-spaces-with-dashes="false" max-tags="1">
+          <tags-input class="bootstrap" ng-model="ac.position" placeholder="Position" replace-spaces-with-dashes="false" max-tags="1" remove-tag-symbol=" ">
             <auto-complete source="ac.loadTags('positions')"></auto-complete>
           </tags-input>
         </div>
