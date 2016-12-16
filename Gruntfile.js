@@ -18,7 +18,10 @@ module.exports = function(grunt) {
                 dest: 'public/assets/dist/core.js'
             },
             shared: {
-                src: ['public/modules/shared/navigation/navigation.js'],
+                src: [
+                    'public/modules/shared/navigation/navigation.js',
+                    'public/modules/shared/toast/toast.js',
+                ],
                 dest: 'public/assets/dist/shared.js'
             },
             talent: {

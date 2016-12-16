@@ -6,6 +6,7 @@ var User = require('./user.schema'),
 module.exports = {
     getUsers: function(params) {
         var users = User.find(),
+            skills = [],
             options = {},
             match = {};
 
@@ -14,14 +15,14 @@ module.exports = {
         }
 
         if (params.skills) {
-            match.applicant = { skills: { $in: params.skills.split(',') } };
+            match.applicant = { name: { $in: params.skills.split(',') } };
         }
 
         if (params.position) {
             match.position = { name: params.position };
         }
 
-        users.populate({ path: '_applicant', match: match.applicant, populate: { path: '_skills' } });
+        users.populate({ path: '_applicant', populate: { path: '_skills', match: match.applicant } });
         users.populate({ path: '_position', match: match.position });
 
         return users.exec(function(err, users) {
