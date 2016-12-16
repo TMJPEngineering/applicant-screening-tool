@@ -22,19 +22,25 @@
             vm.view = view;
             vm.loadTags = loadTags;
             vm.order = {};
+            vm.position = [];
+            vm.skills = [];
             vm.showResults = false;
             vm.showResume = false;
         }
 
         function search() {
+            var skills = [];
+            vm.skills.forEach(function(skill) {
+                skills.push(skill.text);
+            });
+
             var next = false,
                 data = {
-                    position: vm.position,
-                    skills: vm.skills,
+                    position: (vm.position.length) ? vm.position[0].text : '',
+                    skills: skills.join(),
                     from: vm.fromAge,
                     to: vm.toAge
                 };
-
             for (var index in data) {
                 if (data[index] !== undefined)
                     next = true;
