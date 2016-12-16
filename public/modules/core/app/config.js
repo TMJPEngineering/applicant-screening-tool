@@ -10,7 +10,8 @@
     var moduleSharedDependencies = [
         // insert global shared modules here
         'ui.router',
-        'navigation'
+        'navigation',
+        'toast'
     ];
 
     var config = {

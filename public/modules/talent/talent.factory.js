@@ -17,7 +17,7 @@
         function getTalents(params) {
             return $http.get('/api/users', { params: params }).then(function(res) {
                 return res.data.filter(function(user) {
-                    return user._applicant !== null && user._position !== null;
+                    return user._applicant._skills.length !== 0 && user._position !== null;
                 });
             });
         }

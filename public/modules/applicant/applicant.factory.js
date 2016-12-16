@@ -3,9 +3,9 @@
     angular
         .module('applicant')
         .factory('applicantFactory', factory);
-    factory.$inject = ['$http'];
+    factory.$inject = ['$http', 'toast'];
 
-    function factory($http) {
+    function factory($http, toast) {
         var factory = {
             save: save,
             getTags: getTags
@@ -14,9 +14,8 @@
         return factory;
 
         function save(params) {
-            $http.post('/api/applicants', params).then(function(res) {
-                console.log(res);
-            });
+            $http.post('/api/applicants', params).then(function(res) {});
+            toast.info('Your applicant has been saved!');
         }
 
         function getTags(modelName) {
