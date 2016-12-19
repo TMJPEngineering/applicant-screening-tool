@@ -7,7 +7,7 @@ var fs = require('fs'),
 module.exports = function(app) {
     /* Load All Routes */
     route.setApp(app);
-    
+
     function recursiveRoutes(folderName) {
         fs.readdirSync(folderName).forEach(function (file) {
             var pathName = path.join(folderName, file);

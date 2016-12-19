@@ -5,6 +5,7 @@
 
   ```shell
   npm install
+  npm install -g grunt-cli
   bower install
   ```
 

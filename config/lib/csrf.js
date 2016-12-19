@@ -3,7 +3,7 @@
 module.exports = function(app) {
     /* We use csurf for csrfProtection */
     app.use(function(req, res, next) {
-        res.cookie('CSRF-TOKEN', req.csrfToken());
+        res.cookie('XSRF-TOKEN', req.csrfToken());
         next();
     });
 };

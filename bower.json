@@ -16,6 +16,8 @@
   ],
   "dependencies": {
     "oclazyload": "^1.0.9",
-    "angular-ui-router": "^0.3.2"
+    "angular-ui-router": "^0.3.2",
+    "jquery-2.2.4.min": "https://code.jquery.com/jquery-2.2.4.min.js",
+    "ng-tags-input": "^3.1.1"
   }
 }
